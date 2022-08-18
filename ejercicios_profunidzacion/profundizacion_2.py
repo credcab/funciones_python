@@ -36,13 +36,29 @@ en la lista pueden usar el método nativo de list "count"
 # --------------------------------
 # Aquí copiar la función "lista_aleatoria"
 # ya elaborada en el ejercicio anterior
-
+def lista_aleatoria(inicio, fin, cantidad):
+    cantidad_numero_repetido = 0
+    cantidad_3 = 0
+    lista = []
+    for n in range(1, cantidad+1):
+        numero = random.randint(inicio, fin)
+        lista.append(numero)
+        if numero_repetido == numero:
+            cantidad_numero_repetido +=1
+        if 3 == numero:
+            cantidad_3 +=1
+    return lista
 
 # --------------------------------
 
 # --------------------------------
 # Aquí dentro definir la función contar
-
+def contar(lista_numeros, numero_repetido):
+    cantidad_numero_repetido = 0
+    for n in range(0, cantidad):
+        if lista_numeros[n] == numero_repetido:
+            cantidad_numero_repetido +=1
+    return cantidad_numero_repetido
 
 # --------------------------------
 
@@ -52,12 +68,19 @@ if __name__ == '__main__':
     # Alumno: Utilizar la función "lista_aleatoria"
     # para que genere una lista de 5 números que esten comprendidos
     # entre los números 1 al 6 inclusive
-
+    inicio = 1
+    fin = 6
+    cantidad = 5
     # lista_numeros = lista_aleatoria(...)
-
+    print('¿que número del 1 al 6 queres saber cuantas veces se repite?')
+    numero_repetido = int(input())
+    lista_numeros = lista_aleatoria(inicio, fin, cantidad)
+    cantidad_repetido = contar(lista_numeros, numero_repetido)
     # Imprimir en pantalla "lista_numeros" que tendrá
     # los valores retornado por la función "lista_aleatoria":
-
+    
+    print('la lista aleatoria formada es:',lista_numeros)
+    print('el número {} está {} veces'.format(numero_repetido, cantidad_repetido))
     # print(lista_numeros)
 
     # Luego quiero averiguar cuantas veces se repite el numero 3
@@ -65,5 +88,6 @@ if __name__ == '__main__':
     # cantidad_tres = contar(lista_numeros, 3)
 
     # print(cantidad_tres)
+    print('el número 3 está', contar(lista_numeros, 3), 'veces')
 
     print("terminamos")
